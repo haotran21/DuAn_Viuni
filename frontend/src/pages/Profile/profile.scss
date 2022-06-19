@@ -1,0 +1,181 @@
+@use '../../scss/'as *;
+
+.User-profile {
+    flex-basis: 45%;
+    height: auto;
+}
+
+// Header ProFile
+.profile {
+    flex-basis: 45%;
+    // height: auto;
+    &__header {
+        display: flex;
+        align-items: center;
+        height: $header-height;
+        background: $body-bg;
+        /* please don't change 'position' */
+        position: fixed;
+        z-index: 99;
+        /* there must be 'top' for .header */
+        top: 0;
+        width: 45%;
+
+        .backProfile {
+            margin-left: 0.5rem;
+            height: 40px;
+            width: 40px;
+            button {
+                width: inherit;
+                height: inherit;
+                background: none;
+                border: none;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: all 300ms ease;
+                &:hover {
+                    color: $main-color;
+                    background-color: gainsboro;
+                }
+            }
+        }
+
+        .profileName-user {
+            cursor: pointer;
+            margin: 20px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+    }
+        &__Info {
+            // height: auto;
+            width: inherit;
+            .infoContent {
+                /* please don't change 'position' */
+                position: relative;
+                height: auto;
+                // min-height: 510px;
+                width: 100%;
+
+                &__Cover-img {
+                    margin-top: 64px;
+                    height: 205px;
+                    width: 100%;
+
+                    img {
+                        object-fit: cover;
+                        height: 100%;
+                        width: 100%;
+                        cursor: pointer;
+                    }
+                }
+
+                &__TextInfo {
+                    height: auto;
+                    width: 100%;
+                    // position: absolute;
+                    padding: 0 30px;
+
+                    .infoUser {
+                        height: 70px;
+                        width: 100%;
+                        @include flex(center, space-between);
+
+                        &__userAvatar {
+
+                            img {
+                                object-fit: cover;
+                                width: 145px;
+                                height: 145px;
+                                border-radius: 100%;
+                                border: 5px solid #fff;
+                                margin-top: -62.5px;
+                            }
+                        }
+
+                        &__userEdit {
+                            button {
+                                padding: 8px 20px;
+                                border-radius: 10px;
+                                @include colorGradient;
+                                width: 150px;
+                                height: 45px;
+                                border-radius: 50px;
+                                font-weight: bold;
+                                border: none;
+                                cursor: pointer;
+                                color: #fff;
+
+                                &:hover {
+                                    box-shadow: $box-shadow-1;
+                                }
+                            }
+                        }
+                    }
+                    .bio,
+                    .friends{
+                        display: flex;
+                        gap: 20px;
+                        p{
+                            padding: 10px 0;
+                        }
+                    }
+                    .userName,
+                    .dateCreate,
+                    .follower {
+                        padding-top: 5px;
+                    }
+                    .dateCreate {
+                        display: flex;
+                        gap: 20px;
+                        i {
+                        color: $main-color;
+
+                        }
+                    }
+                    .follower {
+                        cursor: pointer;
+                        p{
+                            width: fit-content;
+                            padding: 5px;
+                            &:hover{
+                                box-shadow: $box-shadow;
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+        }
+    }
+
+    .profileItems-menu {
+        width: 100%;
+        .header-nav {
+            @include flex(center, space-between);
+            display: flex;
+            flex: 1fr 1fr 1fr;
+            align-content: center;
+
+            li {
+                padding: 10px 40px;
+                font-weight: 700;
+                width: 33%;
+                text-align: center;
+
+                &.active a{
+                    content: "";
+                    transition: width 0.5s ease;
+                    color: $main-color;
+                }
+
+                &:hover {
+                    box-shadow: $box-shadow;
+                }
+            }
+        }
+    }

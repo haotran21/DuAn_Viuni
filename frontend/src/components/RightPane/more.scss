@@ -1,0 +1,144 @@
+@use '../../scss/'as *;
+
+.moreRight {
+    /* please don't change 'position' */
+    position: relative;
+
+    .dropContainer {
+        /* please don't change 'position' */
+        position: absolute;
+        bottom: 100%;
+        /* there must be 'left' or 'right' for .header */
+        right: 0;
+        left: 0;
+        height: 200px;
+        width: 280px;
+        z-index: 999;
+        background-color: $white;
+        border-radius: 20px;
+        @include center-text;
+        overflow: hidden;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        animation: topbottom 300ms ease-in-out;
+        ul {
+            padding-top: 20px;
+            padding-left: 20px;
+            li {
+                height: 40px;
+                cursor: pointer;
+                width: 95%;
+                font-size: 1.2rem;
+                font-weight: 500;
+                border-radius: 0;
+                @include flex(center, flex-start);
+                &:hover {
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+                &::after {
+                    content: "";
+                    /* please don't change 'position' */
+                    position: absolute;
+                    /* there must be 'left' or 'bottom' for .header */
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    transition: width 0.5s ease;
+                    backface-visibility: hidden;
+                    height: 2px;
+                    background-color: $main-color;
+                }
+
+                &.active::after,
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+
+.dropAccount {
+    /* please don't change 'position' */
+    position: absolute;
+    /* there must be 'bottom' for .dropAccount */
+    bottom: 130%;
+    right: 0;
+    left: 0;
+    height: 200px;
+    width: 280px;
+    background-color: $white;
+    border-radius: 20px;
+    // box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    //             rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    animation: topbottom 300ms ease-in-out;
+    // box-shadow: $box-shadow;
+
+    &::after{
+        /* please don't change 'position' */
+        position: absolute;
+        content: "";
+        /* there must be 'left' and 'bottom' for .header */
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 20px 20px;
+        border-style:solid;
+        border-color: $white transparent transparent transparent;
+        z-index: 999;
+    }
+ 
+    .accountTog {
+        margin-left: 20px;
+        width: 85%;
+        @include flex(center, flex-start);
+        cursor: pointer;
+        color: $txt-color;
+        font-size: 1em;
+        border: none;
+        background-color: $body-bg;
+        border-bottom: 1px $color-btn solid;
+        background-color: transparent;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .avatar {
+            margin-right: 20px;
+        }
+        .infoAcc {
+            .name {
+                font-weight: bold;
+            }
+        }
+    }
+    .itemAcc {
+        margin-top: 20px;
+        margin-left: 20px;
+        width: 85%;
+        li {
+            width: inherit;
+            height: 40px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .logout {
+            span {
+                font-weight: normal !important;
+                color: gray;
+            }
+        }
+    }
+}
+
+@keyframes topbottom {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,155 @@
+@use "../../scss/"as *;
+
+
+#header {
+    border-left: 1px solid #bde0fe;
+    height: 100vh;
+    flex-basis: 25%;
+}
+
+a {
+    color: $txt-color;
+    transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+
+    &:hover {
+        color: $main-color;
+    }
+}
+
+.header {
+    height: $header-height;
+    /* please don't change 'position' */
+    position: sticky;
+    padding-left: 50px;
+    /* there must be 'left' or 'right' for .header */
+    top: 0;
+    right: 0;
+    z-index: 99;
+    transition: height 0.3s ease, background-color 0.3s ease;
+    -moz-transition: height 0.3s ease, background-color 0.3s ease;
+    -webkit-transition: height 0.3s ease, background-color 0.3s ease;
+
+    &__nav {
+        margin-top: 2rem;
+
+        li {
+            @include btnMenu;
+            @include flex(center, space-between);
+            user-select: none;
+
+            &:hover {
+                background-color: $body-bg;
+                box-shadow: $box-shadow-1;
+                color: $main-color;
+            }
+
+
+            &:nth-last-child(1) {
+                background: none;
+            }
+
+            &.active a {
+                color: $main-color;
+                transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -webkit-transition: all 0.5s ease;
+            }
+
+            i {
+                font-size: 25px;
+                margin-right: 20px;
+            }
+        }
+
+        .more {
+            button {
+                background: none;
+                border: none;
+                width: 200px;
+                height: 45px;
+                @include btnMenu;
+                @include flex(center, flex-start);
+                user-select: none;
+
+                &:hover {
+                    background-color: $body-bg;
+                    box-shadow: $box-shadow-1;
+                    color: $main-color;
+                }
+
+                i {
+                    font-size: 25px;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .post {
+        margin-bottom: 50px;
+
+        Button {
+            @include colorGradient;
+            width: 200px;
+            height: 45px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+
+        }
+    }
+
+    &__wrap {
+
+        .infoUser {
+            position: relative;
+            bottom: 1.5em;
+
+            button.account {
+                width: 250px;
+                @include flex(center, space-between);
+                cursor: pointer;
+                color: $txt-color;
+                font-size: 1em;
+                border: none;
+                background-color: $body-bg;
+            }
+
+            .avatar {
+                @include imgAvatar;
+            }
+
+            .info {
+                .name {
+                    font-weight: 700;
+                }
+
+                .username {
+                    font-size: 0.8em;
+                    color: #8899a6;
+                }
+
+            }
+
+        }
+    }
+
+    .copyRight {
+        margin-top: 20px;
+        width: 280px;
+
+        ul {
+            width: inherit;
+            display: flex;
+            flex-flow: wrap;
+
+            li {
+                margin-top: 5px;
+                margin-left: 10px;
+                font-size: 0.8em;
+            }
+        }
+    }
+}

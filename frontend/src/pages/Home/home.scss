@@ -1,0 +1,148 @@
+@use '../../scss/'as *;
+
+section {
+    flex-basis: 45%;
+    height: auto;
+
+    header {
+        @include header;
+        @include flex(center, space-between);
+        /* please don't change 'position' */
+        position: fixed;
+        width: 45%;
+        box-shadow: $box-shadow;
+
+        h2 {
+            font-size: 20px;
+            margin-left: 2rem;
+        }
+    }
+
+    // POST USER
+
+    .postUser {
+        width: 100%;
+        display: flex;
+        padding: 10px 30px;
+        align-self: flex-start;
+        margin-top: 70px;
+        height: 150px;
+
+        .avatar {
+            @include imgAvatar;
+            margin-right: 20px;
+            position: relative
+
+           
+        }
+
+        .contentPost {
+            width: 90%;
+
+            &__user {
+                width: inherit;
+
+                textarea {
+                    width: 90%;
+                    border: none;
+                    background: $body-bg;
+                    font-size: 1.3rem;
+                    word-break: break-all;
+                    resize: none;
+                    outline: none;
+                    overflow: auto;
+
+                    &::-webkit-scrollba {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .privacy {
+
+            .select {
+                font-weight: bold;
+                font-size: 1rem;
+                color: $main-color;
+                cursor: pointer;
+                user-select: none;
+                /* please don't change 'position' */
+                position: relative;
+            }
+
+            .dropContainerPrivate {
+                /* please don't change 'position' */
+                position: absolute;
+                z-index: 999;
+
+                .dropList {
+                    width: 350px;
+                    padding: 0;
+                    margin: 0;
+                    padding-left: 1em;
+                    background: #ffffff;
+                    border: 2px solid #e5e5e5;
+                    box-sizing: border-box;
+                    color: #000;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    animation-name: growDown;
+                    animation-duration: 0.5s;
+                    transform-origin: top center;
+
+                    &:first-child {
+                        padding-top: 0.8em;
+                    }
+
+                    .title {
+                        margin-bottom: 1em;
+                    }
+
+                    .items {
+                        cursor: pointer;
+                        user-select: none;
+                        list-style: none;
+                        margin-bottom: 1em;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .iconPost {
+        margin-top: -30px;
+        border-bottom: 1px solid $main-color;
+
+        .content {
+            margin-bottom: 10px;
+            @include flex(center, space-between);
+            padding: 0 30px;
+        }
+
+        .btnPost {
+            Button {
+                width: 50px;
+                height: 35px;
+                font-size: 0.9rem;
+                font-weight: 100;
+                border-radius: 15px;
+                @include colorGradient;
+            }
+        }
+
+        .icon {
+            margin-left: 50px;
+
+            i {
+                margin-left: 10px;
+                color: $main-color;
+
+                &:hover {
+                    color: #023047;
+                }
+            }
+        }
+    }
+}

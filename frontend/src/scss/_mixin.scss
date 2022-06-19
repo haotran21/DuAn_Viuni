@@ -1,0 +1,100 @@
+@use "./variables"as *;
+
+@mixin flex($aligin-item, $justify-content) {
+    display: flex;
+    align-items: $aligin-item;
+    justify-content: $justify-content;
+}
+
+@mixin overlay {
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+@mixin colorGradient {
+    background: rgb(0, 206, 213);
+    background: linear-gradient(90deg, rgba(0, 206, 213, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+@mixin input {
+    // background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #E7EBF0;
+    background-blend-mode: soft-light, normal;
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    box-sizing: border-box;
+    // box-shadow: inset -2.5px -2.5px 5px #FAFBFF, inset 2.5px 2.5px 5px #A6ABBD;
+    border-radius: 30px;
+}
+
+@mixin btnAddFr {
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+@mixin imgAvatar {
+    border-radius: 100%;
+    height: 2.5em;
+    width: 2.5em;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+@mixin header() {
+    height: $header-height;
+    background: $body-bg;
+    z-index: 99;
+    top: 0;
+    transition: all 1.5s ease;
+}
+
+
+@mixin btnMenu {
+    // padding: 5px 0;
+    font-weight: 700;
+    position: relative;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 200px;
+    transition: all 300ms ease;
+}
+
+@mixin center-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin btnForm {
+    background-color: #1EBADC;
+    width: 100%;
+    height: 45px;
+    border-radius: 20px;
+    border: 1px solid #1EBADC;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+
+    &:hover {
+        box-shadow: none;
+    }
+
+    &:active {
+        background-color: $white;
+        border: 2px $main-color solid;
+        color: $main-color;
+        box-shadow: none;
+    }
+}

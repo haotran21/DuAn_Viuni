@@ -1,0 +1,129 @@
+@use '../../../scss/' as *;
+
+.notification_all{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+      
+    .all-list{
+        display: flex;
+        padding: 30px 30px 30px 40px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #dee2e6;
+        }
+    }
+
+    .all-left{
+        display: flex;
+        margin-right: 50px;
+        .all_twitter{
+            img{
+                width: 100px;
+                border-radius: 50%;
+                object-fit: fill;
+                
+            }
+        }
+        .all-user{
+          margin-left: 10px;
+            img{
+                object-fit: cover;
+            }
+            h2{
+                a{
+                    color: aqua;
+                }
+            }
+            p {
+                overflow: hidden;
+                display: block;                     /*nếu trình duyệt k hỗ trọ thì nó sẽ là display : block*/
+                display: -webkit-box;           /*trình duyệt hỗ trợ */
+                -webkit-box-orient: vertical;   /*tính từ thằng này theo chiều thẳng đứng "vertical"*/
+                -webkit-line-clamp: 2; 
+              
+            }
+            img{
+                height: 35px;
+                width: 35px;
+                border-radius: 50%;
+                object-fit: fill;
+                
+            }
+            p {
+                text-justify: inter-word;
+            }
+        }
+    }
+
+    .search {
+        /* please don't change 'position' */
+        position: relative;
+
+        .all-more {
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                transition: all 300ms ease;
+                z-index: 999;
+                i {
+                    font-size: 1.2em;
+                }
+                &:hover {
+                    background-color: $body-bg;
+                }
+            }
+        }
+        .dropContainer {
+            /* please don't change 'position' */
+            position: absolute;
+            /* there must be 'top', 'right' and 'left' for .dropContainer */
+            top: 50;
+            right: 0;
+            left: 10;
+            transition: all 300ms ease;
+            width: 200px;
+            height: 50px;
+            background-color: $white;
+            border-radius: 25px;
+            box-shadow: $box-shadow-1;
+            animation: topbottom 200ms ease;
+            @include flex(center, center);
+
+            &:hover {
+                box-shadow: none;
+            }
+            font: {
+                size: 1.2rem;
+                weight: 700;
+            }
+            span {
+                a {
+                    &:active {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes topbottom {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
